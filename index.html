@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Feliz Cumpleaños! 🎉</title>
+  <!-- Librería gratuita para el efecto de confeti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <style>
+    /* Estilos Generales */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+      color: #4a4a4a;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: #d81b60;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p.subtitulo {
+      font-size: 1.1rem;
+      color: #6a1b9a;
+    }
+
+    /* Grid de Tarjetas */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* Tarjeta y Animación de Volteo 3D */
+    .card-container {
+      background-color: transparent;
+      height: 180px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card-container.flipped .card {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    /* Frente de la Tarjeta */
+    .front {
+      background: linear-gradient(135deg, #ffffff 0%, #f8bbd0 100%);
+      color: #880e4f;
+      border: 2px solid #f48fb1;
+    }
+
+    .front span.number {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .front p {
+      font-size: 0.85rem;
+      margin-top: 5px;
+      opacity: 0.8;
+    }
+
+    /* Parte Trasera de la Tarjeta */
+    .back {
+      background: #ffffff;
+      color: #333;
+      transform: rotateY(180deg);
+      border: 2px solid #ba68c8;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #7b1fa2;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>✨ ¡Feliz Cumpleaños! ✨</h1>
+    <p class="subtitulo">Toca cada tarjeta para descubrir una razón de por qué eres una persona increíble 💖</p>
+  </header>
+
+  <main class="grid-container">
+    <!-- Tarjeta 1 -->
+    <div class="card-container" onclick="flipCard(this)">
+      <div class="card">
+        <div class="front">
+          <span>💌</span>
+          <span class="number">01</span>
+          <p>Toca para abrir</p>
+        </div>
+        <div class="back">
+          <p>Tu amabilidad y la forma en que cuidas a quienes te rodean te hacen una persona verdaderamente especial.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="card-container" onclick="flipCard(this)">
+      <div class="card">
+        <div class="front">
+          <span>🌟</span>
+          <span class="number">02</span>
+          <p>Toca para abrir</p>
+        </div>
+        <div class="back">
+          <p>Tienes una energía única que ilumina el lugar a donde vas y le saca una sonrisa a cualquiera.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="card-container" onclick="flipCard(this)">
+      <div class="card">
+        <div class="front">
+          <span>🌻</span>
+          <span class="number">03</span>
+          <p>Toca para abrir</p>
+        </div>
+        <div class="back">
+          <p>Tu empatía y capacidad para escuchar hacen que siempre sea increíble contar contigo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 4 -->
+    <div class="card-container" onclick="flipCard(this)">
+      <div class="card">
+        <div class="front">
+          <span>💎</span>
+          <span class="number">04</span>
+          <p>Toca para abrir</p>
+        </div>
+        <div class="back">
+          <p>Admiro mucho tu determinación y la fuerza con la que buscas lo que te propones.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 5 -->
+    <div class="card-container" onclick="flipCard(this)">
+      <div class="card">
+        <div class="front">
+          <span>🎈</span>
+          <span class="number">05</span>
+          <p>Toca para abrir</p>
+        </div>
+        <div class="back">
+          <p>Gracias por ser una amiga tan sincera, leal y auténtica. Personas como tú valen oro.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 6 -->
+    <div class="card-container" onclick="flipCard(this)">
+      <div class="card">
+        <div class="front">
+          <span>🎁</span>
+          <span class="number">06</span>
+          <p>Toca para abrir</p>
+        </div>
+        <div class="back">
+          <p>¡Deseo que este nuevo año de vida te traiga toda la felicidad y el éxito que te mereces!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Hecho con mucho cariño 💻✨</p>
+  </footer>
+
+  <script>
+    function flipCard(element) {
+      // Si la tarjeta no se ha volteado antes, lanzamos confeti
+      if (!element.classList.contains('flipped')) {
+        confetti({
+          particleCount: 40,
+          spread: 60,
+          origin: { y: 0.7 }
+        });
+      }
+      // Alterna la clase 'flipped' para girarla
+      element.classList.toggle('flipped');
+    }
+  </script>
+
+</body>
+</html>
