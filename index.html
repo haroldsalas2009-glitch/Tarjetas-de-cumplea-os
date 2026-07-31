@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>¡Feliz Cumpleaños! 🎉</title>
-  <!-- Librería gratuita para el efecto de confeti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <!-- Librería actualizada a v1.9.2 para compatibilidad con emojis (shapeFromText) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   
   <style>
     /* Estilos Generales */
@@ -22,24 +23,34 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 30px 20px;
+      padding: 30px 15px;
       color: #4a4a4a;
+      text-align: center;
     }
 
+    /* Ajuste responsivo para el Encabezado */
     header {
-      text-align: center;
+      width: 100%;
+      max-width: 600px;
       margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     h1 {
       color: #d81b60;
-      font-size: 2.5rem;
+      /* Tamaño adaptable: no se rompe ni se sale hacia un lado en celulares */
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
       margin-bottom: 10px;
+      word-break: break-word;
     }
 
     p.subtitulo {
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 3.5vw, 1.1rem);
       color: #6a1b9a;
+      padding: 0 10px;
     }
 
     /* Grid de Tarjetas */
