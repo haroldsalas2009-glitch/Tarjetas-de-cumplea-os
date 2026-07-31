@@ -225,13 +225,59 @@
   <script>
     function flipCard(element) {
       // Si la tarjeta no se ha volteado antes, lanzamos confeti
-      if (!element.classList.contains('flipped')) {
-        confetti({
-          particleCount: 40,
-          spread: 60,
-          origin: { y: 0.7 }
-        });
-      }
+     const cardNumber = element.dataset.card;
+
+if (!element.classList.contains('flipped')) {
+  if (cardNumber === '1') {
+    // Tarjeta 1: Confetti tradicional
+    confetti({ particleCount: 40, spread: 60, origin: { y: 0.7 } });
+  } else if (cardNumber === '2') {
+    // Tarjeta 2: Estrellas ⭐
+    confetti({
+      particleCount: 25,
+      spread: 70,
+      origin: { y: 0.7 },
+      shapes: [confetti.shapeFromText({ text: '⭐' })],
+      scalar: 2
+    });
+  } else if (cardNumber === '3') {
+    // Tarjeta 3: Flores 🌻
+    confetti({
+      particleCount: 20,
+      spread: 70,
+      origin: { y: 0.7 },
+      shapes: [confetti.shapeFromText({ text: '🌻' })],
+      scalar: 2
+    });
+  } else if (cardNumber === '4') {
+    // Tarjeta 4: Gemas 💎
+    confetti({
+      particleCount: 20,
+      spread: 70,
+      origin: { y: 0.7 },
+      shapes: [confetti.shapeFromText({ text: '💎' })],
+      scalar: 2
+    });
+  } else if (cardNumber === '5') {
+    // Tarjeta 5: Globos 🎈
+    confetti({
+      particleCount: 20,
+      spread: 70,
+      origin: { y: 0.7 },
+      shapes: [confetti.shapeFromText({ text: '🎈' })],
+      scalar: 2
+    });
+  } else if (cardNumber === '6') {
+    // Tarjeta 6: Regalos 🎁
+    confetti({
+      particleCount: 20,
+      spread: 70,
+      origin: { y: 0.7 },
+      shapes: [confetti.shapeFromText({ text: '🎁' })],
+      scalar: 2
+    });
+  }
+}
       // Alterna la clase 'flipped' para girarla
       element.classList.toggle('flipped');
     }
